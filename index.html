@@ -3,74 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>Final Project kay Pepe!</title>
+  <title>Jose Rizal - National Hero of the Philippines</title>
   <style>
     /* Reset and base */
     * {
       box-sizing: border-box;
     }
-    body {
+    body, html {
       margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f9f9f9;
       color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      overflow-y: auto;
+      position: relative;
       min-height: 100vh;
-      padding: 10px 15px;
     }
+    /* Background container */
     #background-image {
-        position: fixed;
-        top: 0; left: 0; width: 100vw; height: 100vh;
-        background-image: url('\img.jpg');
-        background-size: cover;
-        background-position: center;
-        filter: blur(12px) brightness(0.7);
-        z-index: -2;
-        pointer-events: none;
-      }
-      /* Overlay to dim background for better contrast */
-      #background-overlay {
-        position: fixed;
-        top: 0; left: 0; width: 100vw; height: 100vh;
-        background-color: rgba(255 255 255 / 0.4);
-        z-index: -1;
-        pointer-events: none;
-      }
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/70/Bay_leaf_tree%2C_Laguna%2C_Philippines.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(12px) brightness(0.7);
+      z-index: -2;
+      pointer-events: none;
+    }
+    /* Overlay to dim background for better contrast */
+    #background-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background-color: rgba(255 255 255 / 0.4);
+      z-index: -1;
+      pointer-events: none;
+    }
+
     h1 {
       margin: 0 0 10px 0;
       font-weight: 700;
       font-size: 1.9rem;
       text-align: center;
       color: #064663;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+      text-shadow: 1px 1px 4px rgba(255,255,255,0.7);
     }
     .container {
       max-width: 350px;
       width: 100%;
-      background: #ffffff;
-      box-shadow: 0 4px 12px rgba(6,70,99,0.15);
+      background: rgba(255 255 255 / 0.85);
+      box-shadow: 0 4px 14px rgba(6,70,99,0.25);
       border-radius: 12px;
-      padding: 15px 20px 30px;
+      padding: 20px 22px 35px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin: 15px auto 30px;
+      backdrop-filter: saturate(180%) blur(8px);
+      -webkit-backdrop-filter: saturate(180%) blur(8px);
     }
     img.rizal-photo {
       width: 100%;
       max-width: 300px;
       height: 400px;
       border-radius: 12px;
-      box-shadow: 0 6px 14px rgba(6,70,99,0.25);
-      margin-bottom: 15px;
+      box-shadow: 0 6px 18px rgba(6,70,99,0.35);
+      margin-bottom: 18px;
       user-select: none;
     }
     .btn-group {
       display: flex;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 14px;
+      margin-bottom: 24px;
       flex-wrap: wrap;
       width: 100%;
     }
@@ -79,13 +84,13 @@
       background: #067bc2;
       color: white;
       border: none;
-      padding: 10px 12px;
+      padding: 12px 14px;
       font-size: 1rem;
       font-weight: 600;
-      border-radius: 7px;
+      border-radius: 9px;
       cursor: pointer;
-      transition: background-color 0.25s ease;
-      box-shadow: 0 3px 6px rgba(6,123,194,0.4);
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(6,123,194,0.5);
       user-select: none;
       text-align: center;
     }
@@ -95,90 +100,214 @@
     }
     button.active {
       background: #045a82;
-      box-shadow: 0 4px 12px rgba(4,90,130,0.7);
+      box-shadow: 0 5px 16px rgba(4,90,130,0.8);
     }
     .content-section {
-      font-size: 0.9rem;
-      line-height: 1.45;
-      color: #444;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #333;
       text-align: justify;
-      max-height: 400px;
+      max-height: 420px;
       overflow-y: auto;
       width: 100%;
-      padding: 5px 10px;
-      border-top: 1px solid #dedede;
+      padding: 8px 14px;
+      border-top: 1px solid #b0c4de;
       user-select: text;
+      background: rgba(255 255 255 / 0.8);
+      border-radius: 8px;
+      box-shadow: inset 0 0 8px rgba(6,70,99,0.1);
+      margin-bottom: 30px;
     }
     .monuments-list {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        margin-top: 5px;
-      }
-      .monument-item {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
-      .monument-item img {
-        width: 90px;
-        height: 90px;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(6,70,99,0.2);
-        flex-shrink: 0;
-        user-select: none;
-      }
-      .monument-description {
-        flex: 1;
-        font-size: 0.9rem;
-        color: #333;
-      }
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 8px;
+    }
+    .monument-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .monument-item img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 11px;
+      box-shadow: 0 2px 8px rgba(6,70,99,0.22);
+      flex-shrink: 0;
+      user-select: none;
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
+    .monument-item img:hover,
+    .monument-item img:focus {
+      transform: scale(1.05);
+      outline: none;
+    }
+    .monument-description {
+      flex: 1;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+    }
+    /* New separate button group for Learnings and Members */
+    .footer-btn-group {
+      margin-top: 10px;
+      margin-bottom: 26px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .footer-btn-group button {
+      flex: 1 1 130px;
+      background: #0275d8;
+      box-shadow: 0 4px 10px rgba(2,117,216,0.6);
+      border-radius: 9px;
+      font-size: 1.05rem;
+      padding: 12px 18px;
+      font-weight: 600;
+      transition: background-color 0.25s ease;
+    }
+    .footer-btn-group button:hover, .footer-btn-group button:focus {
+      background: #0490e3;
+      outline: none;
+    }
+    .footer-btn-group button.active {
+      background: #015ea1;
+      box-shadow: 0 5px 16px rgba(1,94,161,0.9);
+    }
+    ul.member-list {
+      list-style: disc inside;
+      margin: 10px 0 0 0;
+      padding: 0;
+    }
+    ul.member-list li {
+      margin: 6px 0;
+    }
+
+    /* Modal styles */
+    #modal {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+    #modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #modal img {
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.8);
+      user-select: none;
+    }
+    #modal .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      font-weight: bold;
+      line-height: 1;
+    }
+    #modal .close-btn:hover,
+    #modal .close-btn:focus {
+      color: #ccc;
+      outline: none;
+    }
+
     @media (max-width: 360px) {
       h1 {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
       }
       button {
         font-size: 0.9rem;
-        padding: 8px 10px;
+        padding: 10px 12px;
+      }
+      .monument-item img {
+        width: 72px;
+        height: 72px;
+      }
+      .monument-description {
+        font-size: 0.85rem;
+      }
+      .footer-btn-group button {
+        flex: 1 1 100px;
+        font-size: 0.9rem;
+        padding: 10px 14px;
       }
     }
     @media (min-width: 700px) {
-      body {
-        padding: 25px 0;
+      body, html {
+        overflow-y: overlay;
       }
       h1 {
-        font-size: 2.5rem;
+        font-size: 2.6rem;
+        text-shadow: 1px 1px 6px rgba(255,255,255,0.75);
       }
       .container {
         max-width: 650px;
-        padding: 30px 40px 40px;
+        padding: 38px 48px 48px;
+        margin: 30px auto 40px;
       }
       img.rizal-photo {
         max-width: 450px;
         border-radius: 18px;
-        box-shadow: 0 8px 20px rgba(6,70,99,0.35);
-        margin-bottom: 25px;
+        box-shadow: 0 10px 28px rgba(6,70,99,0.4);
+        margin-bottom: 26px;
       }
       .btn-group {
-        gap: 20px;
+        gap: 22px;
       }
       button {
-        flex: 1 1 150px;
-        font-size: 1.12rem;
-        padding: 14px 18px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(6,123,194,0.5);
+        flex: 1 1 160px;
+        font-size: 1.15rem;
+        padding: 16px 22px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(6,123,194,0.6);
       }
       .content-section {
-        font-size: 1rem;
-        max-height: 480px;
-        padding: 15px 20px;
+        font-size: 1.1rem;
+        max-height: 520px;
+        padding: 20px 28px;
+        border-top-color: #add8e6;
+        background: rgba(255 255 255 / 0.9);
+      }
+      .monument-item img {
+        width: 120px;
+        height: 120px;
+        border-radius: 16px;
+        box-shadow: 0 3px 12px rgba(6,70,99,0.35);
+      }
+      .monument-description {
+        font-size: 1.1rem;
+      }
+      .footer-btn-group button {
+        flex: 1 1 160px;
+        padding: 14px 22px;
+        font-size: 1.1rem;
+        border-radius: 12px;
       }
     }
   </style>
 </head>
 <body>
+  <div id="background-image" aria-hidden="true"></div>
+  <div id="background-overlay" aria-hidden="true"></div>
   <div class="container" role="main" aria-label="Jose Rizal Website">
     <h1>Jose Rizal</h1>
     <img class="rizal-photo" src="\jose_rizal.jpg" alt="Portrait of Jose Rizal" />
@@ -201,112 +330,144 @@
       </ul>
     </section>
     <section id="section-monuments" class="content-section" role="tabpanel" aria-labelledby="btn-monuments" hidden>
-        <p>Monuments dedicated to Jose Rizal exist in various countries around the world. Some notable ones include:</p>
-        <div class="monuments-list">
-          <div class="monument-item">
-            <img src="\monument_luneta.jpg" alt="Rizal Monument, Luneta Park, Manila, Philippines" />
-            <div class="monument-description">
-              <strong>Rizal Monument - Luneta Park, Manila, Philippines</strong><br/>
-              The most famous monument marking the site of his execution and a national symbol.
-            </div>
-          </div>
-          <div class="monument-item">
-            <img src="\monument_madrid.jpg" alt="Rizal Monument, Madrid, Spain" />
-            <div class="monument-description">
-              <strong>Rizal Monument - Madrid, Spain</strong><br/>
-              Honoring Rizal’s legacy in the former colonial power’s capital.
-            </div>
-          </div>
-          <div class="monument-item">
-            <img src="\monument_wilhelmsfeld.jpg" alt="Rizal Monument, Wilhelmsfeld, Germany" />
-            <div class="monument-description">
-              <strong>Rizal Monument - Wilhelmsfeld, Germany</strong><br/>
-              Near the town where Rizal studied ophthalmology.
-            </div>
-          </div>
-          <div class="monument-item">
-            <img src="\monument_chicago.jpg" alt="Jose Rizal Memorial Statue, Chicago, Illinois, USA" />
-            <div class="monument-description">
-              <strong>Rizal Memorial Statue - Chicago, Illinois, USA</strong><br/>
-              Created by famed sculptor Richard Hunt, located in Lincoln Park.
-            </div>
-          </div>
-          <div class="monument-item">
-            <img src="\monument_seattle.jpg" alt="Jose Rizal Park, Seattle, Washington, USA" />
-            <div class="monument-description">
-              <strong>Jose Rizal Park - Seattle, Washington, USA</strong><br/>
-              Features a statue and commemorates Filipino-American heritage.
-            </div>
-          </div>
-          <div class="monument-item">
-            <img src="\monument_cebu.jpg" alt="Rizal Monument, Cebu, Philippines" />
-            <div class="monument-description">
-              <strong>Rizal Monument - Cebu, Philippines</strong><br/>
-              A prominent monument in Cebu City honoring the national hero.
-            </div>
-          </div>
-          <div class="monument-item">
-            <img src="\monument_london.jpg" alt="Jose Rizal Statue, London, UK" />
-            <div class="monument-description">
-              <strong>Jose Rizal Statue - London, United Kingdom</strong><br/>
-              A tribute statue in London reflecting Rizal’s global legacy.
-            </div>
-          </div>
-          <div class="monument-item">
-            <img src="\monument_berlin.jpg" alt="Jose Rizal Statue, Berlin, Germany" />
-            <div class="monument-description">
-              <strong>Jose Rizal Statue - Berlin, Germany</strong><br/>
-              Commemorative statue celebrating Rizal’s impact in Germany.
-            </div>
-          </div>
-          <div class="monument-item">
-            <img src="\monument_jakarta.jpg" alt="Jose Rizal Monument, Jakarta, Indonesia" />
-            <div class="monument-description">
-              <strong>Jose Rizal Monument - Jakarta, Indonesia</strong><br/>
-              A monument recognizing Rizal’s influence in Southeast Asia.
-            </div>
+      <p>Monuments dedicated to Jose Rizal exist in various countries around the world. Some notable ones include:</p>
+      <div class="monuments-list">
+        <div class="monument-item">
+          <img src="\monument_luneta.jpg" alt="Rizal Monument, Luneta Park, Manila, Philippines" />
+          <div class="monument-description">
+            <strong>Rizal Monument - Luneta Park, Manila, Philippines</strong><br/>
+            The most famous monument marking the site of his execution and a national symbol.
           </div>
         </div>
-        <p>These monuments celebrate his enduring legacy as a national hero and reformer.</p>
-      </section>
-  </div>
-  <div class="main-content">
-    <section id="section-learnings" class="content-section" role="tabpanel" aria-labelledby="btn-learnings" hidden>
+        <div class="monument-item">
+          <img src="\monument_madrid.jpg" alt="Rizal Monument, Madrid, Spain" />
+          <div class="monument-description">
+            <strong>Rizal Monument - Madrid, Spain</strong><br/>
+            Honoring Rizal’s legacy in the former colonial power’s capital.
+          </div>
+        </div>
+        <div class="monument-item">
+          <img src="\monument_wilhelmsfeld.jpg" alt="Rizal Monument, Wilhelmsfeld, Germany" />
+          <div class="monument-description">
+            <strong>Rizal Monument - Wilhelmsfeld, Germany</strong><br/>
+            Near the town where Rizal studied ophthalmology.
+          </div>
+        </div>
+        <div class="monument-item">
+          <img src="\monument_chicago.jpg" alt="Jose Rizal Memorial Statue, Chicago, Illinois, USA" />
+          <div class="monument-description">
+            <strong>Rizal Memorial Statue - Chicago, Illinois, USA</strong><br/>
+            Created by famed sculptor Richard Hunt, located in Lincoln Park.
+          </div>
+        </div>
+        <div class="monument-item">
+          <img src="\monument_seattle.jpg" alt="Jose Rizal Park, Seattle, Washington, USA" />
+          <div class="monument-description">
+            <strong>Jose Rizal Park - Seattle, Washington, USA</strong><br/>
+            Features a statue and commemorates Filipino-American heritage.
+          </div>
+        </div>
+        <div class="monument-item">
+          <img src="\monument_cebu.jpg" alt="Rizal Monument, Cebu, Philippines" />
+          <div class="monument-description">
+            <strong>Rizal Monument - Cebu, Philippines</strong><br/>
+            A prominent monument in Cebu City honoring the national hero.
+          </div>
+        </div>
+        <div class="monument-item">
+          <img src="\monument_london.jpg" alt="Jose Rizal Statue, London, UK" />
+          <div class="monument-description">
+            <strong>Jose Rizal Statue - London, United Kingdom</strong><br/>
+            A tribute statue in London reflecting Rizal’s global legacy.
+          </div>
+        </div>
+        <div class="monument-item">
+          <img src="\monument_berlin.jpg" alt="Jose Rizal Statue, Berlin, Germany" />
+          <div class="monument-description">
+            <strong>Jose Rizal Statue - Berlin, Germany</strong><br/>
+            Commemorative statue celebrating Rizal’s impact in Germany.
+          </div>
+        </div>
+        <div class="monument-item">
+          <img src="\monument_jakarta.jpg" alt="Jose Rizal Monument, Jakarta, Indonesia" />
+          <div class="monument-description">
+            <strong>Jose Rizal Monument - Jakarta, Indonesia</strong><br/>
+            A monument recognizing Rizal’s influence in Southeast Asia.
+          </div>
+        </div>
+      </div>
+      <p>These monuments celebrate his enduring legacy as a national hero and reformer.</p>
     </section>
-    <section id="section-members" class="content-section" role="tabpanel" aria-labelledby="btn-members" hidden>
-      <h2>Group Members</h2>
+
+    <div class="footer-btn-group" role="tablist" aria-label="Additional sections">
+      <button id="btn-learnings" role="tab" aria-selected="false" aria-controls="section-learnings" tabindex="-1">Learnings</button>
+      <button id="btn-members" role="tab" aria-selected="false" aria-controls="section-members" tabindex="-1">Members</button>
+    </div>
+
+    <section id="section-learnings" class="content-section" role="tabpanel" aria-labelledby="btn-learnings" hidden>
+      <h2>Learnings about The Life and Works of Rizal</h2>
       <ul>
-        <li><strong>Member 1:</strong> Name Here</li>
-        <li><strong>Member 2:</strong> Name Here</li>
-        <li><strong>Member 3:</strong> Name Here</li>
-        <li><strong>Member 4:</strong> Name Here</li>
+        <li><strong>Maria:</strong> Rizal’s bravery in speaking against colonial injustices was inspiring and his writings helped ignite nationalism.</li>
+        <li><strong>Carlos:</strong> I learned how Rizal’s peaceful approach contrasted with other revolutionaries but was equally impactful.</li>
+        <li><strong>Anna:</strong> The depth of Rizal’s skills in multiple fields like medicine and languages amazed me.</li>
+        <li><strong>Juan:</strong> Understanding Rizal’s global influence helped me appreciate Philippine history in a world context.</li>
+      </ul>
+    </section>
+
+    <section id="section-members" class="content-section" role="tabpanel" aria-labelledby="btn-members" hidden>
+      <h2>Members</h2>
+      <ul class="member-list">
+        <li>Maria Santos</li>
+        <li>Carlos Dela Cruz</li>
+        <li>Anna Reyes</li>
+        <li>Juan Navarro</li>
       </ul>
     </section>
   </div>
-  <div class="footer-btn-group" role="tablist" aria-label="Additional sections">
-    <button id="btn-learnings" role="tab" aria-selected="false" aria-controls="section-learnings" tabindex="-1">Learnings</button>
-    <button id="btn-members" role="tab" aria-selected="false" aria-controls="section-members" tabindex="-1">Members</button>
+
+  <!-- Modal for full-size monument images -->
+  <div id="modal" role="dialog" aria-modal="true" aria-label="Full-size monument image" tabindex="-1" hidden>
+    <button class="close-btn" aria-label="Close image">&times;</button>
+    <img src="" alt="" />
   </div>
+
   <script>
     (() => {
       const buttons = document.querySelectorAll('.btn-group button');
+      const footerButtons = document.querySelectorAll('.footer-btn-group button');
       const sections = {
         'btn-personal': document.getElementById('section-personal'),
         'btn-contributions': document.getElementById('section-contributions'),
-        'btn-monuments': document.getElementById('section-monuments')
+        'btn-monuments': document.getElementById('section-monuments'),
+        'btn-learnings': document.getElementById('section-learnings'),
+        'btn-members': document.getElementById('section-members')
       };
-      function setActive(clickedButton) {
-        buttons.forEach(btn => {
+
+      function setActive(clickedButton, buttonGroup) {
+        buttonGroup.forEach(btn => {
           const selected = btn === clickedButton;
           btn.classList.toggle('active', selected);
           btn.setAttribute('aria-selected', selected);
           btn.tabIndex = selected ? 0 : -1;
-          sections[btn.id].hidden = !selected;
+          if (sections[btn.id]) {
+            sections[btn.id].hidden = !selected;
+          }
         });
       }
+
+      // Main buttons event listeners
       buttons.forEach(btn => {
-        btn.addEventListener('click', () => setActive(btn));
-        btn.addEventListener('keydown', (e) => {
+        btn.addEventListener('click', () => {
+          setActive(btn, buttons);
+          // Hide footer sections on main tab change
+          footerButtons.forEach(fb => {
+            fb.classList.remove('active');
+            fb.setAttribute('aria-selected', 'false');
+            fb.tabIndex = -1;
+            if(sections[fb.id]) sections[fb.id].hidden = true;
+          });
+        });
+        btn.addEventListener('keydown', e => {
           let index = Array.from(buttons).indexOf(e.target);
           if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
             e.preventDefault();
@@ -318,15 +479,89 @@
             buttons[prevIndex].focus();
           } else if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            setActive(e.target);
+            btn.click();
           }
         });
       });
-      // Initialize
-      setActive(document.getElementById('btn-personal'));
+
+      // Footer buttons event listeners
+      footerButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          setActive(btn, footerButtons);
+          // Hide main sections when footer tab active
+          buttons.forEach(mb => {
+            mb.classList.remove('active');
+            mb.setAttribute('aria-selected', 'false');
+            mb.tabIndex = -1;
+            if(sections[mb.id]) sections[mb.id].hidden = true;
+          });
+        });
+        btn.addEventListener('keydown', e => {
+          let index = Array.from(footerButtons).indexOf(e.target);
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            const nextIndex = (index + 1) % footerButtons.length;
+            footerButtons[nextIndex].focus();
+          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            const prevIndex = (index - 1 + footerButtons.length) % footerButtons.length;
+            footerButtons[prevIndex].focus();
+          } else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            btn.click();
+          }
+        });
+      });
+
+      // Initialize main section active
+      setActive(document.getElementById('btn-personal'), buttons);
+
+      // Modal elements
+      const modal = document.getElementById('modal');
+      const modalImg = modal.querySelector('img');
+      const modalCloseBtn = modal.querySelector('.close-btn');
+
+      // Function to open modal with clicked image
+      function openModal(src, alt) {
+        modalImg.src = src;
+        modalImg.alt = alt;
+        modal.hidden = false;
+        modal.classList.add('active');
+        modal.focus();
+        document.body.style.overflow = 'hidden'; // prevent background scroll
+      }
+      // Function to close modal
+      function closeModal() {
+        modal.classList.remove('active');
+        modal.hidden = true;
+        modalImg.src = '';
+        modalImg.alt = '';
+        document.body.style.overflow = '';
+      }
+
+      // Attach click event to monument images
+      document.querySelectorAll('.monument-item img').forEach(img => {
+        img.addEventListener('click', () => openModal(img.src.replace('/320px-', '/'), img.alt));
+        img.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal(img.src.replace('/320px-', '/'), img.alt);
+          }
+        });
+        img.tabIndex = 0; // make focusable
+      });
+
+      // Close modal on close button click
+      modalCloseBtn.addEventListener('click', closeModal);
+      // Close modal on outside click
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      // Close modal on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hidden) closeModal();
+      });
     })();
   </script>
 </body>
 </html>
-</content>
-</create_file>
