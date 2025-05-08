@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Jose Rizal - National Hero of the Philippines</title>
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 10px 15px;
+    }
+    #background-image {
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        background-image: url('\img.jpg');
+        background-size: cover;
+        background-position: center;
+        filter: blur(12px) brightness(0.7);
+        z-index: -2;
+        pointer-events: none;
+      }
+      /* Overlay to dim background for better contrast */
+      #background-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        background-color: rgba(255 255 255 / 0.4);
+        z-index: -1;
+        pointer-events: none;
+      }
+    h1 {
+      margin: 0 0 10px 0;
+      font-weight: 700;
+      font-size: 1.9rem;
+      text-align: center;
+      color: #064663;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+    .container {
+      max-width: 350px;
+      width: 100%;
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(6,70,99,0.15);
+      border-radius: 12px;
+      padding: 15px 20px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    img.rizal-photo {
+      width: 100%;
+      max-width: 300px;
+      height: 400px;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(6,70,99,0.25);
+      margin-bottom: 15px;
+      user-select: none;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    button {
+      flex: 1 1 95px;
+      background: #067bc2;
+      color: white;
+      border: none;
+      padding: 10px 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: background-color 0.25s ease;
+      box-shadow: 0 3px 6px rgba(6,123,194,0.4);
+      user-select: none;
+      text-align: center;
+    }
+    button:hover, button:focus {
+      background: #0a9ee3;
+      outline: none;
+    }
+    button.active {
+      background: #045a82;
+      box-shadow: 0 4px 12px rgba(4,90,130,0.7);
+    }
+    .content-section {
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: #444;
+      text-align: justify;
+      max-height: 400px;
+      overflow-y: auto;
+      width: 100%;
+      padding: 5px 10px;
+      border-top: 1px solid #dedede;
+      user-select: text;
+    }
+    .monuments-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 5px;
+      }
+      .monument-item {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .monument-item img {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(6,70,99,0.2);
+        flex-shrink: 0;
+        user-select: none;
+      }
+      .monument-description {
+        flex: 1;
+        font-size: 0.9rem;
+        color: #333;
+      }
+    @media (max-width: 360px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      button {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+      }
+    }
+    @media (min-width: 700px) {
+      body {
+        padding: 25px 0;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      .container {
+        max-width: 650px;
+        padding: 30px 40px 40px;
+      }
+      img.rizal-photo {
+        max-width: 450px;
+        border-radius: 18px;
+        box-shadow: 0 8px 20px rgba(6,70,99,0.35);
+        margin-bottom: 25px;
+      }
+      .btn-group {
+        gap: 20px;
+      }
+      button {
+        flex: 1 1 150px;
+        font-size: 1.12rem;
+        padding: 14px 18px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(6,123,194,0.5);
+      }
+      .content-section {
+        font-size: 1rem;
+        max-height: 480px;
+        padding: 15px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main" aria-label="Jose Rizal Website">
+    <h1>Jose Rizal</h1>
+    <img class="rizal-photo" src="\jose_rizal.jpg" alt="Portrait of Jose Rizal" />
+    <div class="btn-group" role="tablist" aria-label="Information sections">
+      <button id="btn-personal" role="tab" aria-selected="true" aria-controls="section-personal" tabindex="0" class="active">Personal Information</button>
+      <button id="btn-contributions" role="tab" aria-selected="false" aria-controls="section-contributions" tabindex="-1">Contributions</button>
+      <button id="btn-monuments" role="tab" aria-selected="false" aria-controls="section-monuments" tabindex="-1">Monuments around the world</button>
+    </div>
+    <section id="section-personal" class="content-section" role="tabpanel" aria-labelledby="btn-personal">
+      <p><strong>Jose Protacio Mercado Rizal y Alonzo Realonda</strong> (June 19, 1861 – December 30, 1896) was a Filipino nationalist, writer, and revolutionary. Widely regarded as the national hero of the Philippines, he was a polymath and nationalist who advocated for reform in the Spanish colonial government through his writings. He was born in Calamba, Laguna, Philippines.</p>
+      <p>Rizal was a skilled ophthalmologist, polymath, and a prolific writer who authored famous novels like <em>Noli Me Tangere</em> and <em>El Filibusterismo</em> that inspired the Philippine revolution against Spanish rule. He was executed by firing squad in Manila at Bagumbayan (now Luneta Park) by Spanish colonial authorities.</p>
+      <p><strong>Jose Protacio Mercado Rizal y Alonzo Realonda</strong> (June 19, 1861 – December 30, 1896) was a Filipino nationalist, writer, and revolutionary. Widely regarded as the national hero of the Philippines, he was a polymath and nationalist who advocated for reform in the Spanish colonial government through his writings. He was born in Calamba, Laguna, Philippines.</p>
+      <p>Rizal was a skilled ophthalmologist, polymath, and a prolific writer who authored famous novels like <em>Noli Me Tangere</em> and <em>El Filibusterismo</em> that inspired the Philippine revolution against Spanish rule. He was executed by firing squad in Manila at Bagumbayan (now Luneta Park) by Spanish colonial authorities.</p>
+      <p><strong>Jose Protacio Mercado Rizal y Alonzo Realonda</strong> (June 19, 1861 – December 30, 1896) was a Filipino nationalist, writer, and revolutionary. Widely regarded as the national hero of the Philippines, he was a polymath and nationalist who advocated for reform in the Spanish colonial government through his writings. He was born in Calamba, Laguna, Philippines.</p>
+      <p>Rizal was a skilled ophthalmologist, polymath, and a prolific writer who authored famous novels like <em>Noli Me Tangere</em> and <em>El Filibusterismo</em> that inspired the Philippine revolution against Spanish rule. He was executed by firing squad in Manila at Bagumbayan (now Luneta Park) by Spanish colonial authorities.</p>
+
+    </section>
+    <section id="section-contributions" class="content-section" role="tabpanel" aria-labelledby="btn-contributions" hidden>
+      <p>Jose Rizal's contributions to the Philippines include:</p>
+      <ul>
+        <li>Authoring pioneering novels <em>Noli Me Tangere</em> (1887) and <em>El Filibusterismo</em> (1891) that exposed abuses under Spanish colonial rule and inspired Filipino nationalism.</li>
+        <li>Advocating for peaceful reforms through writings and civic organizations such as La Liga Filipina to promote unity and reform among Filipinos.</li>
+        <li>Spreading awareness abroad of the need for Philippine reforms and independence through his travels, writings, and speeches in Europe and other countries.</li>
+        <li>Being a symbol of Filipino identity and resistance to colonial oppression, whose martyrdom inspired the Philippine Revolution of 1896.</li>
+      </ul>
+    </section>
+    <section id="section-monuments" class="content-section" role="tabpanel" aria-labelledby="btn-monuments" hidden>
+        <p>Monuments dedicated to Jose Rizal exist in various countries around the world. Some notable ones include:</p>
+        <div class="monuments-list">
+          <div class="monument-item">
+            <img src="\monument_luneta.jpg" alt="Rizal Monument, Luneta Park, Manila, Philippines" />
+            <div class="monument-description">
+              <strong>Rizal Monument - Luneta Park, Manila, Philippines</strong><br/>
+              The most famous monument marking the site of his execution and a national symbol.
+            </div>
+          </div>
+          <div class="monument-item">
+            <img src="\monument_madrid.jpg" alt="Rizal Monument, Madrid, Spain" />
+            <div class="monument-description">
+              <strong>Rizal Monument - Madrid, Spain</strong><br/>
+              Honoring Rizal’s legacy in the former colonial power’s capital.
+            </div>
+          </div>
+          <div class="monument-item">
+            <img src="\monument_wilhelmsfeld.jpg" alt="Rizal Monument, Wilhelmsfeld, Germany" />
+            <div class="monument-description">
+              <strong>Rizal Monument - Wilhelmsfeld, Germany</strong><br/>
+              Near the town where Rizal studied ophthalmology.
+            </div>
+          </div>
+          <div class="monument-item">
+            <img src="\monument_chicago.jpg" alt="Jose Rizal Memorial Statue, Chicago, Illinois, USA" />
+            <div class="monument-description">
+              <strong>Rizal Memorial Statue - Chicago, Illinois, USA</strong><br/>
+              Created by famed sculptor Richard Hunt, located in Lincoln Park.
+            </div>
+          </div>
+          <div class="monument-item">
+            <img src="\monument_seattle.jpg" alt="Jose Rizal Park, Seattle, Washington, USA" />
+            <div class="monument-description">
+              <strong>Jose Rizal Park - Seattle, Washington, USA</strong><br/>
+              Features a statue and commemorates Filipino-American heritage.
+            </div>
+          </div>
+          <div class="monument-item">
+            <img src="\monument_cebu.jpg" alt="Rizal Monument, Cebu, Philippines" />
+            <div class="monument-description">
+              <strong>Rizal Monument - Cebu, Philippines</strong><br/>
+              A prominent monument in Cebu City honoring the national hero.
+            </div>
+          </div>
+          <div class="monument-item">
+            <img src="\monument_london.jpg" alt="Jose Rizal Statue, London, UK" />
+            <div class="monument-description">
+              <strong>Jose Rizal Statue - London, United Kingdom</strong><br/>
+              A tribute statue in London reflecting Rizal’s global legacy.
+            </div>
+          </div>
+          <div class="monument-item">
+            <img src="\monument_berlin.jpg" alt="Jose Rizal Statue, Berlin, Germany" />
+            <div class="monument-description">
+              <strong>Jose Rizal Statue - Berlin, Germany</strong><br/>
+              Commemorative statue celebrating Rizal’s impact in Germany.
+            </div>
+          </div>
+          <div class="monument-item">
+            <img src="\monument_jakarta.jpg" alt="Jose Rizal Monument, Jakarta, Indonesia" />
+            <div class="monument-description">
+              <strong>Jose Rizal Monument - Jakarta, Indonesia</strong><br/>
+              A monument recognizing Rizal’s influence in Southeast Asia.
+            </div>
+          </div>
+        </div>
+        <p>These monuments celebrate his enduring legacy as a national hero and reformer.</p>
+      </section>
+  </div>
+  <div class="main-content">
+    <section id="section-learnings" class="content-section" role="tabpanel" aria-labelledby="btn-learnings" hidden>
+    </section>
+    <section id="section-members" class="content-section" role="tabpanel" aria-labelledby="btn-members" hidden>
+      <h2>Group Members</h2>
+      <ul>
+        <li><strong>Member 1:</strong> Name Here</li>
+        <li><strong>Member 2:</strong> Name Here</li>
+        <li><strong>Member 3:</strong> Name Here</li>
+        <li><strong>Member 4:</strong> Name Here</li>
+      </ul>
+    </section>
+  </div>
+  <div class="footer-btn-group" role="tablist" aria-label="Additional sections">
+    <button id="btn-learnings" role="tab" aria-selected="false" aria-controls="section-learnings" tabindex="-1">Learnings</button>
+    <button id="btn-members" role="tab" aria-selected="false" aria-controls="section-members" tabindex="-1">Members</button>
+  </div>
+  <script>
+    (() => {
+      const buttons = document.querySelectorAll('.btn-group button');
+      const sections = {
+        'btn-personal': document.getElementById('section-personal'),
+        'btn-contributions': document.getElementById('section-contributions'),
+        'btn-monuments': document.getElementById('section-monuments')
+      };
+      function setActive(clickedButton) {
+        buttons.forEach(btn => {
+          const selected = btn === clickedButton;
+          btn.classList.toggle('active', selected);
+          btn.setAttribute('aria-selected', selected);
+          btn.tabIndex = selected ? 0 : -1;
+          sections[btn.id].hidden = !selected;
+        });
+      }
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => setActive(btn));
+        btn.addEventListener('keydown', (e) => {
+          let index = Array.from(buttons).indexOf(e.target);
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            const nextIndex = (index + 1) % buttons.length;
+            buttons[nextIndex].focus();
+          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            const prevIndex = (index - 1 + buttons.length) % buttons.length;
+            buttons[prevIndex].focus();
+          } else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setActive(e.target);
+          }
+        });
+      });
+      // Initialize
+      setActive(document.getElementById('btn-personal'));
+    })();
+  </script>
+</body>
+</html>
+</content>
+</create_file>
