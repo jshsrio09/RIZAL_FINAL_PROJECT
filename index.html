@@ -61,11 +61,13 @@
       margin: 15px auto 30px;
       backdrop-filter: saturate(180%) blur(8px);
       -webkit-backdrop-filter: saturate(180%) blur(8px);
+      /* Add bottom padding so content isn't hidden behind sticky footer */
+      padding-bottom: 120px;
     }
     img.rizal-photo {
       width: 100%;
       max-width: 300px;
-      height: 400px;
+      height: auto;
       border-radius: 12px;
       box-shadow: 0 6px 18px rgba(6,70,99,0.35);
       margin-bottom: 18px;
@@ -150,7 +152,7 @@
       font-size: 0.95rem;
       color: #1a1a1a;
     }
-    /* New separate button group for Learnings and Members */
+    /* Sticky footer button group */
     .footer-btn-group {
       margin-top: 10px;
       margin-bottom: 26px;
@@ -159,6 +161,31 @@
       gap: 18px;
       flex-wrap: wrap;
       width: 100%;
+      transition: all 0.3s ease;
+      background: rgba(255 255 255 / 0.95);
+      border-radius: 12px;
+      padding: 10px 15px;
+      box-shadow: 0 -4px 15px rgba(6,70,99,0.25);
+      /* Default position is relative */
+      position: relative;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      z-index: 10;
+    }
+    /* Sticky modifier: fixes the footer at bottom */
+    .footer-btn-group.sticky {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: auto;
+      max-width: 650px;
+      padding: 12px 22px;
+      box-shadow: 0 4px 22px rgba(6,70,99,0.45);
+      background: rgba(255 255 255 / 0.98);
+      border-radius: 18px;
+      z-index: 10000;
     }
     .footer-btn-group button {
       flex: 1 1 130px;
@@ -186,50 +213,6 @@
     ul.member-list li {
       margin: 6px 0;
     }
-
-    /* Modal styles */
-    #modal {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      background-color: rgba(0,0,0,0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 1000;
-    }
-    #modal.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    #modal img {
-      max-width: 90vw;
-      max-height: 80vh;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.8);
-      user-select: none;
-    }
-    #modal .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 25px;
-      background: transparent;
-      border: none;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-      user-select: none;
-      font-weight: bold;
-      line-height: 1;
-    }
-    #modal .close-btn:hover,
-    #modal .close-btn:focus {
-      color: #ccc;
-      outline: none;
-    }
-
     @media (max-width: 360px) {
       h1 {
         font-size: 1.7rem;
@@ -263,6 +246,7 @@
         max-width: 650px;
         padding: 38px 48px 48px;
         margin: 30px auto 40px;
+        padding-bottom: 120px; /* Ensure bottom padding for sticky footer */
       }
       img.rizal-photo {
         max-width: 450px;
@@ -302,6 +286,49 @@
         font-size: 1.1rem;
         border-radius: 12px;
       }
+    }
+
+    /* Modal styles */
+    #modal {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+    #modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #modal img {
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(14, 13, 13, 0.8);
+      user-select: none;
+    }
+    #modal .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      font-weight: bold;
+      line-height: 1;
+    }
+    #modal .close-btn:hover,
+    #modal .close-btn:focus {
+      color: #030303;
+      outline: none;
     }
   </style>
 </head>
@@ -435,6 +462,7 @@
     (() => {
       const buttons = document.querySelectorAll('.btn-group button');
       const footerButtons = document.querySelectorAll('.footer-btn-group button');
+      const footerBtnGroup = document.querySelector('.footer-btn-group');
       const sections = {
         'btn-personal': document.getElementById('section-personal'),
         'btn-contributions': document.getElementById('section-contributions'),
@@ -466,6 +494,8 @@
             fb.tabIndex = -1;
             if(sections[fb.id]) sections[fb.id].hidden = true;
           });
+          // Remove sticky class when main buttons active
+          footerBtnGroup.classList.remove('sticky');
         });
         btn.addEventListener('keydown', e => {
           let index = Array.from(buttons).indexOf(e.target);
@@ -495,6 +525,8 @@
             mb.tabIndex = -1;
             if(sections[mb.id]) sections[mb.id].hidden = true;
           });
+          // Add sticky class when footer buttons active
+          footerBtnGroup.classList.add('sticky');
         });
         btn.addEventListener('keydown', e => {
           let index = Array.from(footerButtons).indexOf(e.target);
