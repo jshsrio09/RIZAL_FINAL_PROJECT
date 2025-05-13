@@ -213,6 +213,153 @@
     ul.member-list li {
       margin: 6px 0;
     }
+    .section-title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.8rem;
+}
+
+.learnings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.learning-card {
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.learning-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.learning-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.learning-card strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.learning-card p {
+  font-size: 0.95rem;
+  color: #555;
+  text-align: justify;
+}
+.section-members {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 20px;
+  color: #333;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.member-card {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: #e0f7fa;  /* Light cyan background on hover */
+}
+
+.member-name {
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.member-card:hover .member-name {
+  color: #00796b;  /* Change text color to deep teal on hover */
+  transform: scale(1.05);  /* Slightly enlarge the text on hover */
+}
+
+/* Alternate card colors for variety */
+.member-card:nth-child(odd) {
+  background-color: #f1f8e9; /* Light green background for odd cards */
+}
+
+.member-card:nth-child(even) {
+  background-color: #5cecf7; /* Light orange background for even cards */
+}
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(6,70,99,0.35);
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background-color: #fff;
+}
+
+.flip-card-back {
+  background-color: #fdfdfd;
+  color: black;
+  transform: rotateY(180deg);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rizal-info {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+}
     @media (max-width: 360px) {
       h1 {
         font-size: 1.7rem;
@@ -337,7 +484,23 @@
   <div id="background-overlay" aria-hidden="true"></div>
   <div class="container" role="main" aria-label="Jose Rizal Website">
     <h1>Jose Rizal</h1>
-    <img class="rizal-photo" src="\jose_rizal.jpg" alt="Portrait of Jose Rizal" />
+    <div class="flip-card" id="rizalFlipCard">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img class="rizal-photo" src="\jose_rizal.jpg" alt="Portrait of Jose Rizal" />
+    </div>
+    <div class="flip-card-back">
+      <div class="rizal-info">
+        <h2>Jose Rizal</h2>
+        <p><strong>Full Name:</strong> Jose Protacio Mercado Rizal y Alonzo Realonda</p>
+        <p><strong>Birth:</strong> June 19, 1861</p>
+        <p><strong>Death:</strong> December 30, 1896</p>
+        <p><strong>Profession:</strong> Writer, Ophthalmologist, Nationalist</p>
+        <p><strong>Known For:</strong> Noli Me Tangere, El Filibusterismo, Philippine reforms</p>
+      </div>
+    </div>
+  </div>
+</div>
     <div class="btn-group" role="tablist" aria-label="Information sections">
       <button id="btn-personal" role="tab" aria-selected="true" aria-controls="section-personal" tabindex="0" class="active">Personal Information</button>
       <button id="btn-contributions" role="tab" aria-selected="false" aria-controls="section-contributions" tabindex="-1">Contributions</button>
@@ -432,27 +595,71 @@
     </div>
 
     <section id="section-learnings" class="content-section" role="tabpanel" aria-labelledby="btn-learnings" hidden>
-      <h2><center>Learnings about The Life and Works of Rizal</center></h2>
-      <ul>
-        <li><strong>John Wilbert Carullo:</strong> ..... </li>
-        <li><strong>Gabriel Concepcion:</strong> “In this course, I learned about José Rizal, his life, works, and his legacy as a national hero of the Philippines. I learned about his experience concerning nationalism, nurtured by his educational background, the extra mile of living abroad, and the socio-political background of 19th-century Filipino society. The reading of his novels Noli Me Tangere and El Filibusterismo showed his endless touts for social justice and reforms. Appreciation of Rizal as a mestizo with somewhat Chinese blood and with the family environment where he was raised established the ground for a vision of a Filipino nation. His annotations on Morga's work showed Rizal's attempts to correct misinterpretations in history, while his essays The Philippines a Century Hence and The Indolence of the Filipinos provided critical perspectives on colonial mentality facing the country and avenues for improvement. Through the trial and execution of Rizal, who stood for peaceful reform, he became a beacon of hope and resilience, an ideal persona for present young Filipinos.”</li>
-        <li><strong>Roinel James Llesis:</strong> .......... </li>
-        <li><strong>Carl James Poopalaretnam:</strong> ........... </li>
-        <li><strong>Feliah Hadassah Salvamante:</strong> ......... </li>
-        <li><strong>Joshua Sario:</strong> ............. </li>
-      </ul>
+      <h2 class="section-title">Learnings about The Life and Works of Rizal</h2>
+
+      <div class="learnings-grid">
+
+        <div class="learning-card">
+          <img src="path/to/john-wilbert-carullo.jpg" alt="John Wilbert Carullo">
+          <strong>John Wilbert Carullo</strong>
+          <p>"From this course I learned more about José Rizal’s journey, his impact on the Filipino identity and his eternal role as a symbol of reform. Getting to know his background, upbringing, education, and how he spent his time off had also made it easy for me to evaluate his nationalist ideas and critical perspective. His novels Noli Me Tangere and El Filibusterismo, enlightened my eyes to the injustices of his days and his call to non-violent change. I was most taken aback by his insights on history and how he had turned colonial narratives upside down by what he wrote. Rizal’s courage championing renaissance in the Philippines still motivate me to undervalue education, challenge what is wrong, and hold to the dignity of being a Filipino."</p>
+        </div>
+
+        <div class="learning-card">
+          <img src="\gab.jpg" alt="Gabriel Concepcion">
+          <strong>Gabriel Concepcion</strong>
+          <p>"In this course, I learned about José Rizal, his life, works, and his legacy as a national hero of the Philippines. I learned about his experience concerning nationalism, nurtured by his educational background, the extra mile of living abroad, and the socio-political background of 19th-century Filipino society. The reading of his novels Noli Me Tangere and El Filibusterismo showed his endless touts for social justice and reforms. Appreciation of Rizal as a mestizo with somewhat Chinese blood and with the family environment where he was raised established the ground for a vision of a Filipino nation. His annotations on Morga's work showed Rizal's attempts to correct misinterpretations in history, while his essays The Philippines a Century Hence and The Indolence of the Filipinos provided critical perspectives on colonial mentality facing the country and avenues for improvement. Through the trial and execution of Rizal, who stood for peaceful reform, he became a beacon of hope and resilience, an ideal persona for present young Filipinos."</p>
+        </div>
+
+        <div class="learning-card">
+          <img src="\roi.jpg" alt="Roinel James Llesis">
+          <strong>Roinel James Llesis</strong>
+          <p>..........</p>
+        </div>
+
+        <div class="learning-card">
+          <img src="path/to/carl-james-poopalaretnam.jpg" alt="Carl James Poopalaretnam">
+          <strong>Carl James Poopalaretnam</strong>
+          <p>...........</p>
+        </div>
+
+        <div class="learning-card">
+          <img src="path/to/feliah-hadassah-salvamante.jpg" alt="Feliah Hadassah Salvamante">
+          <strong>Feliah Hadassah Salvamante</strong>
+          <p>.........</p>
+        </div>
+
+        <div class="learning-card">
+          <img src="path/to/joshua-sario.jpg" alt="Joshua Sario">
+          <strong>Joshua Sario</strong>
+          <p>.............</p>
+        </div>
+
+      </div>
     </section>
 
     <section id="section-members" class="content-section" role="tabpanel" aria-labelledby="btn-members" hidden>
-      <h2>Members</h2>
-      <ul class="member-list">
-        <li>Carullo, John Wilbert</li>
-        <li>Concepcion, Gabriel</li>
-        <li>Llesis, Roinel James</li>
-        <li>Poopalaretnam, Carl James</li>
-        <li>Salvamante, Feliah Hadassah</li>
-        <li>Sario, Joshua</li>
-      </ul>
+     <h2 class="section-members">Members</h2>
+     <div class="members-grid">
+       <div class="member-card">
+         <div class="member-name">Carullo, John Wilbert</div>
+       </div>
+       <div class="member-card">
+         <div class="member-name">Concepcion, Gabriel</div>
+       </div>
+       <div class="member-card">
+         <div class="member-name">Llesis, Roinel James</div>
+       </div>
+       <div class="member-card">
+         <div class="member-name">Poopalaretnam, Carl James</div>
+       </div>
+       <div class="member-card">
+         <div class="member-name">Salvamante, Feliah Hadassah</div>
+       </div>
+       <div class="member-card">
+         <div class="member-name">Sario, Joshua</div>
+       </div>
+     </div>
     </section>
   </div>
 
@@ -584,6 +791,10 @@
         modalImg.alt = '';
         document.body.style.overflow = '';
       }
+
+      document.getElementById('rizalFlipCard').addEventListener('click', function () {
+        this.classList.toggle('flipped');
+      });
 
       // Attach click event to monument images
       document.querySelectorAll('.monument-item img').forEach(img => {
