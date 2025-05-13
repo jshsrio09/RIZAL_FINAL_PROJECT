@@ -353,12 +353,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .rizal-info {
+  max-height: 100%;
+  overflow-y: auto;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
   text-align: left;
+  padding-right: 10px;
+  scrollbar-width: thin;
 }
     @media (max-width: 360px) {
       h1 {
@@ -484,6 +489,7 @@
   <div id="background-overlay" aria-hidden="true"></div>
   <div class="container" role="main" aria-label="Jose Rizal Website">
     <h1>Jose Rizal</h1>
+    <p><em>Tap this image to view Jose Rizal's personal information</em></p>
     <div class="flip-card" id="rizalFlipCard">
   <div class="flip-card-inner">
     <div class="flip-card-front">
@@ -491,34 +497,242 @@
     </div>
     <div class="flip-card-back">
       <div class="rizal-info">
-        <h2>Jose Rizal</h2>
-        <p><strong>Full Name:</strong> Jose Protacio Mercado Rizal y Alonzo Realonda</p>
-        <p><strong>Birth:</strong> June 19, 1861</p>
-        <p><strong>Death:</strong> December 30, 1896</p>
-        <p><strong>Profession:</strong> Writer, Ophthalmologist, Nationalist</p>
-        <p><strong>Known For:</strong> Noli Me Tangere, El Filibusterismo, Philippine reforms</p>
+        <h2><center>Jose Rizal</center></h2>
+  <p><strong>Full Name:</strong> Jose Protacio Mercado Rizal y Alonzo Realonda</p>
+  <p><strong>Birth:</strong> June 19, 1861, Calamba, Laguna, Philippines</p>
+  <p><strong>Death:</strong> December 30, 1896, Bagumbayan (now Luneta Park), Manila</p>
+
+  <h3><center>Family Background</center></h3>
+  <p><strong>Father:</strong> Francisco Mercado Rizal – a well-educated farmer</p>
+  <p><strong>Mother:</strong> Teodora Alonso Realonda – one of the most educated women of her time</p>
+
+  <p><strong>Siblings:</strong> Jose Rizal was the seventh of eleven children:</p>
+  <ul>
+    <li>Saturnina Rizal</li>
+    <li>Paciano Rizal</li>
+    <li>Narcisa Rizal</li>
+    <li>Olympia Rizal</li>
+    <li>Lucia Rizal</li>
+    <li>Maria Rizal</li>
+    <li>Jose Rizal</li>
+    <li>Concepcion Rizal</li>
+    <li>Josefa Rizal</li>
+    <li>Trinidad Rizal</li>
+    <li>Soledad Rizal</li>
+  </ul>
+
+  <h3><center>Education</center></h3>
+  <p><strong>Primary Education:</strong> Ateneo Municipal de Manila</p>
+  <p><strong>Medical Studies:</strong> Universidad Central de Madrid, University of Paris, University of Heidelberg</p>
+
+  <h3><center>Professional Life</center></h3>
+  <p><strong>Occupations:</strong> Ophthalmologist, Writer, Journalist, Reformer, Polyglot</p>
+  <p><strong>Languages Spoken:</strong> 22+ including Spanish, Filipino, German, French, Latin, Greek, Hebrew, and more</p>
+
+  <h3><center>Legacy</center></h3>
+  <p>Jose Rizal is considered the Philippines’ greatest national hero. His writings sparked the Philippine revolution and continue to inspire generations in the pursuit of truth, freedom, and justice.</p>
+  
+  <h3><center>Fun Fact</center></h3>
+  <p>Rizal was a Renaissance man—he sketched, sculpted, wrote poetry, performed surgeries, and even bred pets like dogs and doves.</p>
       </div>
     </div>
   </div>
 </div>
     <div class="btn-group" role="tablist" aria-label="Information sections">
-      <button id="btn-personal" role="tab" aria-selected="true" aria-controls="section-personal" tabindex="0" class="active">Personal Information</button>
+      <button id="btn-personal" role="tab" aria-selected="true" aria-controls="section-personal" tabindex="0" class="active">Works</button>
       <button id="btn-contributions" role="tab" aria-selected="false" aria-controls="section-contributions" tabindex="-1">Contributions</button>
       <button id="btn-monuments" role="tab" aria-selected="false" aria-controls="section-monuments" tabindex="-1">Monuments around the world</button>
     </div>
     <section id="section-personal" class="content-section" role="tabpanel" aria-labelledby="btn-personal">
-      <p><strong>Jose Protacio Mercado Rizal y Alonzo Realonda</strong> (June 19, 1861 – December 30, 1896) was a Filipino nationalist, writer, and revolutionary. Widely regarded as the national hero of the Philippines, he was a polymath and nationalist who advocated for reform in the Spanish colonial government through his writings. He was born in Calamba, Laguna, Philippines.</p>
-      <p>Rizal was a skilled ophthalmologist, polymath, and a prolific writer who authored famous novels like <em>Noli Me Tangere</em> and <em>El Filibusterismo</em> that inspired the Philippine revolution against Spanish rule. He was executed by firing squad in Manila at Bagumbayan (now Luneta Park) by Spanish colonial authorities.</p>
+      <p>José Rizal, the national hero of the Philippines, was a prolific writer and intellectual whose works sparked the Filipino nationalist movement against Spanish colonial rule. His literary output includes novels, essays, poems, and articles that address themes such as colonial oppression, injustice, and the need for reform. Here are his most notable works:</p>
+
+        <h3>Noli Me Tangere (1887)</h3>
+        <p><strong>Type: </strong>Novel</p>
+        <p><strong>Language: </strong>Spanish</p>
+        <p><strong>English Title: </strong>Touch Me Not</p>
+        <p>This novel exposes the social injustices, corruption, and abuse of power by the Spanish clergy and government officials in the Philippines. It follows the story of Crisostomo Ibarra, a young man who returns to the Philippines after studying in Europe, only to find his country plagued by oppression. It is a scathing critique of colonial rule and the Catholic Church's role in Philippine society.</p>
+
+        <h3>El Filibusterismo (1891)</h3>
+        <p><strong>Type: </strong>Novel</p>
+        <p><strong>Language: </strong>Spanish</p>
+        <p><strong>English Title: </strong>The Reign of Greed</p>
+        <p>A darker, more radical sequel to Noli Me Tangere, this novel centers on Simoun, the alter ego of Crisostomo Ibarra. Disillusioned, Simoun returns to instigate a revolution against the Spanish regime. The novel explores themes of revenge, corruption, and social transformation, highlighting Rizal’s growing frustration with the pace of reform.</p>
+
+        <h3>Mi Último Adiós (1896)</h3>
+        <p><strong>Type: </strong>Poem</p>
+        <p><strong>Language: </strong>Spanish</p>
+        <p><strong>English Title: </strong>My Last Farewell</p>
+        <p>Written on the eve of his execution, this poem is Rizal's farewell to his beloved country. It expresses his willingness to die for the Philippines and his hope for its freedom. The poem is considered one of the most moving and patriotic works in Philippine literature.</p>
+
+        <h3>La Indolencia de los Filipinos (1890)</h3>
+        <p><strong>Type: </strong>Essay</p>
+        <p><strong>Language: </strong>Spanish</p>
+        <p><strong>English Title: </strong>The Indolence of the Filipinos</p>
+        <p>In this essay, Rizal refutes the Spanish claim that Filipinos were lazy by nature. He argues that colonial policies, oppression, lack of education, and economic stagnation were the real causes of perceived indolence among Filipinos.</p>
+
+        <h3> Sobre la Nueva Ortografía de la Lengua Tagala (1890)</h3>
+        <p><strong>Type: </strong>Essay</p>
+        <p><strong>Language: </strong>Spanish</p>
+        <p><strong>English Title: </strong>On the New Orthography of the Tagalog Language</p>
+        <p>This linguistic essay proposes changes to Tagalog spelling to make it more consistent and phonetic. Rizal advocates for national identity through language reform.</p>
+
+        <h3>Filipinas Dentro de Cien Años (1889–1890)</h3>
+        <p><strong>Type: </strong>Essay Series</p>
+        <p><strong>Language: </strong>Spanish</p>
+        <p><strong>English Title: </strong>The Philippines a Century Hence</p>
+        <p>A four-part essay predicting the future of the Philippines, Rizal examines the possible outcomes of continued Spanish rule, American intervention, or Philippine independence. It is a visionary work showcasing his analytical and prophetic insights.</p>
+
+        <h3>A La Juventud Filipina (1879)</h3>
+        <p><strong>Type: </strong>Poem</p>
+        <p><strong>Language: </strong>Spanish</p>
+        <p><strong>English Title: </strong>To the Filipino Youth</p>
+        <p>Written when Rizal was only 18, this poem encourages the youth of the Philippines to cultivate their talents and take part in shaping the nation's future. It emphasizes education, progress, and national pride.</p>
+
+        <h3>Junto Al Pasig (1880)</h3>
+        <p><strong>Type: </strong>Poem/Play</p>
+        <p><strong>Language: </strong>Spanish</p>
+        <p><strong>English Title: </strong>Beside the Pasig</p>
+        <p>A one-act play written for a school program, this allegorical drama features religious and patriotic themes, portraying the Philippines as a nation under the control of foreign powers and the Catholic Church.</p>
+         
+        <h2><center>Other Works</center></h2>
+
+        <h3>Essay & Articles:</h3>
+        <ul>
+        <li>The Truth for All (La Verdad para Todos)</li>
+        <li>To the Young Women of Malolos</li>
+        <li>The Revolution (La Revolución)</li>
+        <li>Un Recuerdo A Mi Pueblo (A Memory of My Town)</li>
+        <li>Con Gratos Recuerdos del Sr. José Rizal</li>
+        <li>Manifesto a Algunos Filipinos</li>
+        </ul>
+
+        <h3>Letters & Correspondence:</h3>
+        <ul>
+        <li>Letters to his family (especially to his mother, Teodora Alonso)</li>
+        <li>Letters to Ferdinand Blumentritt (his Austrian friend and supporter)</li>
+        <li>Letter to the Young Women of Malolos</li>
+        <li>Letters from Dapitan</li>
+        <li>Farewell Letter to His Parents</li>
+        <li>Letter to His Countrymen</li>
+        <li>Letter to Josephine Bracken</li>
+        <li>Last Letter to His Family (night before his execution)</li>
+        </ul>
+
+        <h3>Poetry:</h3>
+        <ul>
+        <li>Sa Aking Mga Kabata (To My Fellow Youth) – attributed to Rizal, though authorship is disputed</li>
+        <li>Canto del Viajero (Song of the Traveler)</li>
+        <li>Me Piden Versos (They Ask Me for Verses)</li>
+        <li>El Canto del Viajero</li>
+        <li>A Las Flores de Heidelberg (To the Flowers of Heidelberg)</li>
+        <li>A Mi Madre (To My Mother)</li>
+        <li>A La Señorita C.O. y R.</li>
+        <li>Mi Retiro (My Retreat)</li>
+        <li>Por La Educación</li>
+        <li>Kundiman (Tagalog poem)</li>
+        <li>Education Gives Luster to the Motherland (Por la Educación, recibe lustre la Patria)</li>
+        <li>To Josephine (dedicated to Josephine Bracken)</li>
+        <li>Himno a Talisay (Hymn to Talisay) – written in Dapitan for his schoolchildren</li>
+        </ul>
+
+        <h3>Plays/Dramatic Works:</h3>
+        <ul>
+        <li>El Consejo de los Dioses (The Council of the Gods) – allegorical drama (1880)</li>
+        <li>San Euistaquio, Mártir – translation from Latin to Tagalog</li>
+        <li>Alegoría Filipina – unpublished dramatic allegory</li>
+        </ul>
+
+        <h3>Scientific & Scholarly Works:</h3>
+        <ul>
+        <li>Studies on Philippine flora and fauna – Rizal was an accomplished naturalist</li>
+        <li>Tagalog grammar and dictionary project – an unfinished linguistic study</li>
+        <li>Ethnographic notes on the people of Dapitan</li>
+        <li>Medical notes and eye surgery case reports – as a trained ophthalmologist</li>
+        </ul>
+
+        <h3>Translations:</h3>
+        <ul>
+        <li>Wilhelm Tell by Friedrich Schiller – translated into Tagalog</li>
+        <li>The Fables of La Fontaine – translated for Filipino children</li>
+        <li>The Sucesos de las Islas Filipinas by Antonio de Morga – annotated edition</li>
+        </ul> 
     </section>
+
     <section id="section-contributions" class="content-section" role="tabpanel" aria-labelledby="btn-contributions" hidden>
-      <p>Jose Rizal's contributions to the Philippines include:</p>
+      <p>José Rizal made significant contributions to the Philippines in literature, nationalism, education, science, and reform advocacy. Though he was not a revolutionary in the militant sense, his intellectual and moral leadership became the foundation of the Philippine revolution.</p>
+      
+      <h3>1. Nationalism and the Propaganda Movement</h3>
+      <p>Rizal was a key figure in the Propaganda Movement, a group of Filipino reformists in Europe who sought changes in the Spanish colonial administration through peaceful means.</p>
       <ul>
-        <li>Authoring pioneering novels <em>Noli Me Tangere</em> (1887) and <em>El Filibusterismo</em> (1891) that exposed abuses under Spanish colonial rule and inspired Filipino nationalism.</li>
-        <li>Advocating for peaceful reforms through writings and civic organizations such as La Liga Filipina to promote unity and reform among Filipinos.</li>
-        <li>Spreading awareness abroad of the need for Philippine reforms and independence through his travels, writings, and speeches in Europe and other countries.</li>
-        <li>Being a symbol of Filipino identity and resistance to colonial oppression, whose martyrdom inspired the Philippine Revolution of 1896.</li>
+        <li>Promoted Filipino nationalism and unity.</li>
+        <li>Fought for equality between Filipinos and Spaniards under the law.</li>
+        <li>Advocated for freedom of speech, press, and assembly.</li>
+        <li>Helped awaken national consciousness among Filipinos.</li>
+      </ul>
+
+      <h3>2. Literary Contributions</h3>
+      <p>Rizal used his writings to expose the ills of Spanish colonization.</p>
+      <ul>
+        <li>Noli Me Tangere – exposed the corruption of the clergy and colonial government.</li>
+        <li>El Filibusterismo – showed the need for radical change through revolution.</li>
+        <li>Mi Último Adiós – a patriotic poem showing his love for the country even in death.</li>
+      </ul>
+      <p>These Works:</p>
+      <ul>
+        <li>Sparked the revolutionary movement.</li>
+        <li>Inspired leaders like Andres Bonifacio and Emilio Aguinaldo.</li>
+      </ul>
+
+      <h3>3. Education Advocacy</h3>
+      <p>Rizal believed that education is key to liberation from oppression.</p>
+      <ul>
+        <li>Advocated for the establishment of schools accessible to Filipinos.</li>
+        <li>Promoted education for both men and women (e.g., “Letter to the Young Women of Malolos”).</li>
+        <li>Opened a school for boys in Dapitan, teaching academic and practical skills.</li>
+      </ul>
+
+      <h3>4. Scientific and Medical Contributions</h3>
+      <p>Rizal was trained as a doctor (ophthalmologist) and had deep interests in science and natural history.</p>
+      <ul>
+        <li>Successfully performed eye surgeries (notably on his mother).</li>
+        <li>Collected flora and fauna specimens while in Dapitan (some species named after him).</li>
+        <li>Conducted geographic and ethnographic studies in Mindanao.</li>
+      </ul>
+
+      <h3>5. Linguistic and Cultural Contributions</h3>
+      <p></p>
+      <ul>
+        <li>Advocated for the preservation and development of Filipino languages.</li>
+        <li>Wrote essays like "Sobre la Nueva Ortografía de la Lengua Tagala".</li>
+        <li>Translated classic works into Tagalog to educate Filipinos.</li>
+      </ul>
+
+      <h3>6. Peaceful Reform Advocacy</h3>
+      <p>Unlike other revolutionaries, Rizal sought peaceful reform rather than violent revolution.</p>
+      <ul>
+        <li>Emphasized nonviolent resistance and moral transformation.</li>
+        <li>Believed change must come through enlightenment and civic virtue.</li>
+      </ul>
+      <p>Though not a militant leader, his execution made him a martyr and a symbol of the Filipino struggle for freedom.</p>
+
+      <h3>7. Life in Exile (Dapitan Contributions)</h3>
+      <p></p>
+      <ul>
+        <li>Lived in Dapitan (1892–1896) after being exiled.</li>
+        <li>Built a school, water system, and hospital.</li>
+        <li>Practiced medicine, taught students, and engaged in public works.</li>
+        <li>Lived a model life of service and simplicity that inspired future leaders.</li>
+      </ul>
+
+      <h3>8. Legacy</h3>
+      <p></p>
+      <ul>
+        <li>His life and writings inspired the 1896 Philippine Revolution.</li>
+        <li>Declared national hero by both the American colonial government and Filipino historians.</li>
+        <li>His ideas remain the foundation of modern Filipino identity and democratic values.</li>
       </ul>
     </section>
+
     <section id="section-monuments" class="content-section" role="tabpanel" aria-labelledby="btn-monuments" hidden>
       <p>Monuments dedicated to Jose Rizal exist in various countries around the world. Some notable ones include:</p>
       <div class="monuments-list">
@@ -600,7 +814,7 @@
       <div class="learnings-grid">
 
         <div class="learning-card">
-          <img src="path/to/john-wilbert-carullo.jpg" alt="John Wilbert Carullo">
+          <img src="\wilbert.jpg" alt="John Wilbert Carullo">
           <strong>John Wilbert Carullo</strong>
           <p>"From this course I learned more about José Rizal’s journey, his impact on the Filipino identity and his eternal role as a symbol of reform. Getting to know his background, upbringing, education, and how he spent his time off had also made it easy for me to evaluate his nationalist ideas and critical perspective. His novels Noli Me Tangere and El Filibusterismo, enlightened my eyes to the injustices of his days and his call to non-violent change. I was most taken aback by his insights on history and how he had turned colonial narratives upside down by what he wrote. Rizal’s courage championing renaissance in the Philippines still motivate me to undervalue education, challenge what is wrong, and hold to the dignity of being a Filipino."</p>
         </div>
@@ -614,25 +828,39 @@
         <div class="learning-card">
           <img src="\roi.jpg" alt="Roinel James Llesis">
           <strong>Roinel James Llesis</strong>
-          <p>..........</p>
+          <p>"Learning about the life and works of Rizal have emphasized the importance of love for one's country and fighting for it with knowledge, courage, and heart. Rizal was curious, hard-working, and had big dreams, but he used his knowledge to help others and inspire change. His novels, Noli Me Tangere and El Filibusterismo, exposed injustices during Spanish rule, showing how words can be weapons for truth and justice. Rizal also taught the value of education, as he never stopped learning and improving himself even when away from home. Education is not just for oneself but for the country and future And Lastly, Being a hero doesn't always involve being on the battlefield, but standing up for what's right, using talents to make a difference, and staying true to values. Rizal's legacy continues to inspire many, reminding us that even one person, with the right purpose, can change a nation."</p>
         </div>
 
         <div class="learning-card">
-          <img src="path/to/carl-james-poopalaretnam.jpg" alt="Carl James Poopalaretnam">
+          <img src="\carl.jpg" alt="Carl James Poopalaretnam">
           <strong>Carl James Poopalaretnam</strong>
-          <p>...........</p>
+          <p>"The Learning of Life and Works of Rizal, has been an eye-opener and worthwhile learning for me. From the beginning day I found myself interested in the learning of Jose Rizal, not only as a name in our history books but as a person who also has a story. We began from his birth, his early life, his parent’s background and how he grew up Calamba, Laguna. Knowing about the modest, yet disciplined life, I realized, I no longer saw him as a far-from-reach hero, but as somebody who took the same way to grow, gain knowledge, and fight.
+
+When we got deeper into the course, I was more motivated by his intelligence, courage, as well as his great love for the country. We have explored his journeys – to Spain, France, Germany, Japan and other countries – and in all of them there was something to influence his ideas, and to give impetus to his wish to make Filipinos become free through studying and non-violent changes. His sacrifices and determination made a great impression on me.
+
+Something that I enjoyed the most upon learning was his famous works. Noli Me Tangere and El Filibusterismo awakened me to the grim sides of existence of the Filipinos under the Spanish reign. These novels were not simply stories – they were acts of courage. Rizal had his weapon in his pen. He also composed poems such as Mi Último Adiós that was so emotional and loud, especially because he wrote it before his death. The aforementioned poem made me think about how much one can go in the name of one’s country. Another composition, To the Filipino youth, refreshed in me the fact that we, the younger lot have a major contribution to make towards building our nation.
+
+This course doesn’t simply provide me with the knowledge, but it makes me think about my values and dreams. I got to know that even if you are not a hero that does big things, you can still be a hero who fights for what is right, educated, and use our talents for the good of others. Rizal’s life called me to remember that one should never stop learning and developing.
+
+Since this course is almost done, I would like to say, thank you, Ma’am Juvy. It’s the pleasure for guiding us, for the patience, and for making us look at the life and works of Rizal in a deeper sense. You not only taught us the facts but assisted us in feeling and knowing the lessons of the facts. It is a real favor for me having you as my instructor in this course. You have greatly changed my college life.
+
+This course did not only provide me with relevant historical knowledge. It gave me strength, courage, better understanding of what loving the country and dreaming are. It is something in my journey that will never go away, as not only a student but also a professional in the future, and as Filipino. I believe that the lessons that we learn from Rizal will be in trend and will lead the youth of today to make better decisions, be more responsible, and aid in creating a brighter future for our country.
+
+ Thank you, Ma’am Juvy."</p>
         </div>
 
         <div class="learning-card">
-          <img src="path/to/feliah-hadassah-salvamante.jpg" alt="Feliah Hadassah Salvamante">
+          <img src="\feliah.jpg" alt="Feliah Hadassah Salvamante">
           <strong>Feliah Hadassah Salvamante</strong>
-          <p>.........</p>
+          <p>"Taking this course made me see Rizal not just as a national hero we read about in books, but as a real person who used his talents to fight for change. I was inspired by how he used writing, especially Noli Me Tangere and El Filibusterismo, to open people’s eyes to injustice—without using violence.
+
+What really stood out to me was his belief in the power of education and the youth. It made me reflect on my role as a student and how I can use what I learn to make a difference, even in small ways. Rizal’s life reminds me that being patriotic isn't about big gestures—it’s about standing up for what’s right, even when it’s hard."</p>
         </div>
 
         <div class="learning-card">
-          <img src="path/to/joshua-sario.jpg" alt="Joshua Sario">
+          <img src="\josh.jpg" alt="Joshua Sario">
           <strong>Joshua Sario</strong>
-          <p>.............</p>
+          <p>"The life and works of Rizal gave deeper knowledge of Jose rizal’s contribution to Philippine history as national hero who called for changes through peaceful way. His novels, Noli Me Tangere and El Filibusterismo, were great instruments of revealing the evils of Spanish colonial government and arousing Filipino nationalism. The course showed Rizal’s firm conviction in education, civic responsibility, and the need for intellectual awakening for national agenda. From his writings, letters, and travels, I learned about his unbending commitment towards the Filipino people and the fact that he was ready to sacrifice for the common good. All in all, the course made me recognize a deeper meaning of the aspects of patriotism, the necessity of critical thinking, and the long-standing effect of written word when promoting social change. Truly, Rizal embodied the saying "The pen is mightier than the sword," proving that words and ideas can ignite change more powerfully than violence."</p>
         </div>
 
       </div>
